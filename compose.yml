@@ -1,0 +1,15 @@
+services:
+  samba:
+    image: dockurr/samba
+    container_name: samba
+    environment:
+      USER: "kokos"
+      PASS: "qaqsqdqe"
+      RW: true      # Optional, default true
+      UID: 777    # Optional, default 1000
+      GID: 777    # Optional, default 1000
+    ports:
+      - 445:445
+    volumes:
+      - /home/neon/Public:/storage
+      - ./smb.conf:/etc/samba/smb.conf
